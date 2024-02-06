@@ -91,7 +91,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://localhost:8000'
+    baseURL: 'http://laravel_10_restaurant_management.test'
   },
   /*
   ** Build configuration
