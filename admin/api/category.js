@@ -5,7 +5,7 @@ const CategoryApi = {
     return axios.$get("/api/category/htmltree" + except);
   },
   create: (axios, payload) => {
-    return axios.$post("/api/category", payload);
+    return axios.$post("/api/category/store", payload);
   },
   list: (axios, payload = null) => {
     let payload_arr = [];
@@ -16,9 +16,7 @@ const CategoryApi = {
       }
     }
 
-    // console.log(payload_arr);return false;
-
-    return axios.$get("/api/category?" + payload_arr.join("&"));
+    return axios.$get("/api/category/list?" + payload_arr.join("&"));
   },
   delete: (axios, id) => {
     return axios.$delete("/api/category/" + id);
