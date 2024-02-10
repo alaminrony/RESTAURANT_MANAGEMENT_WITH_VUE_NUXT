@@ -3,8 +3,6 @@ export const state = () => ({
   category: {
     title: "",
     parent_id: "",
-    description: "",
-    featured: 0,
   },
   categoryHtmlTree: "",
   features: [],
@@ -33,10 +31,7 @@ export const mutations = {
     state.category = {
       title: "",
       parent_id: "",
-      description: "",
-      featured: 0,
     };
-    state.features = [];
   },
 
   setCategoryList(state, category_list) {
@@ -57,6 +52,7 @@ export const actions = {
   getCategoryHtmlTree({ commit }, exceptId = null) {
     CategoryApi.getCategoriesHtmlTree(this.$axios, exceptId).then(
       (response) => {
+        console.log(response);
         let html = '<option value="">--Select Category--</option>';
         html += response;
         commit("setCategoryHtmlTree", html);
@@ -183,6 +179,7 @@ export const actions = {
 
     CategoryApi.show(this.$axios, id)
       .then((response) => {
+        console.log(response);
         commit(
           "shared/setStatusMessageParameter",
           { key: "showLoading", val: false },

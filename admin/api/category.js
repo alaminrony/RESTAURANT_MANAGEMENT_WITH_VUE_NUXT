@@ -22,10 +22,11 @@ const CategoryApi = {
     return axios.$delete("/api/category/" + id);
   },
   show: (axios, id) => {
-    return axios.$get("/api/category/" + id);
+    console.log(id);
+    return axios.$get(`/api/category/${id}/show`);
   },
   async update(axios, payload, id) {
-    return await axios.$put("/api/category/" + id, payload);
+    return await axios.$put(`/api/category/${id}/update`, payload);
   },
 };
 
